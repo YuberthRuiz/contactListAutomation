@@ -1,3 +1,4 @@
+@contacts @smoke
 Feature: Add new contact
   To make smoke testing
   As a contact list app user
