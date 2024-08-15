@@ -18,7 +18,7 @@ public class GetContactsSteps {
 
     @Steps(shared = true)
     LoginUserSteps loginUserSteps;
-    @Step("#actor requested the add contact servie")
+    @Step("#actor requested the add contact service")
     public int addContact(String user) {
         String token = loginUserSteps.getToken();
         File addContact = new File("src/test/resources/json/addContact.json");

@@ -34,5 +34,4 @@ public class GetContactStepDefinition {
         String idContact = response.jsonPath().getString("_id");
         assertEquals(idContacts, idContact);
     }
-
 }
