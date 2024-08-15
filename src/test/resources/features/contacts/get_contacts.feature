@@ -1,4 +1,4 @@
-@contacts @list
+@contacts @smoke @list
 Feature: Get the contacts list
 
   Scenario: Should be able to get contacts list

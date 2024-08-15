@@ -14,7 +14,7 @@ public class LoginUserSteps {
         RestAssured.baseURI = "https://thinking-tester-contact-list.herokuapp.com";
     }
     @Step("#actor is logged into the application")
-    public String user_is_logged(){
+    public String getToken(){
         File loginUserRequest = new File("src/test/resources/json/loginUser.json");
         Response response = RestAssured.given().body(loginUserRequest)
                 .contentType("application/json")

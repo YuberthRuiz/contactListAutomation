@@ -17,7 +17,7 @@ public class GetContactListStepDefinitions {
     CreateContactStepDefinitions createContactStepDefinitions;
     @When("^(.*) requested the list of contacts")
     public void user_requested_the_list_of_contacts( String actor) {
-        String token = loginUserSteps.user_is_logged();
+        String token = loginUserSteps.getToken();
         Response response = RestAssured.given()
                 .auth().oauth2(token)
                 .contentType("application/json")
