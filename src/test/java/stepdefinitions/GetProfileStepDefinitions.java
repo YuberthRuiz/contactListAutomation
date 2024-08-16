@@ -34,8 +34,8 @@ public class GetProfileStepDefinitions {
                 .extract().response();
         statusCode = response.statusCode();
     }
-    @Then("he should see the profile response")
-    public void he_should_see_the_profile_response() {
+    @Then("he should see the profile response successfully")
+    public void user_should_see_the_profile_response() {
         assertEquals(statusCode, 200);
     }
 

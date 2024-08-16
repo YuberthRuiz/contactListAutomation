@@ -7,4 +7,4 @@ Feature: Add new contact
   Scenario: Should be able to create new contacts when the user logs in
     Given Sam is logged into the application
     When Sam requested the add contact service
-    Then he should see the newly created contact
+    Then he should see the contact created successfully

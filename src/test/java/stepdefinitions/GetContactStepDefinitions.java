@@ -19,11 +19,11 @@ public class GetContactStepDefinitions {
     @Steps(shared = true)
     AddContactsSteps getContactsSteps;
     @When("^(.*) requested the contact service")
-    public void sam_requested_the_contact_service(String actor) {
+    public void user_requested_the_contact_service(String actor) {
         idContacts = getContactsSteps.idNewContact();
     }
-    @Then("he should see the contact requested")
-    public void he_should_see_the_contact_requested() {
+    @Then("he should see the contact requested was successfully")
+    public void user_should_see_the_contact_requested() {
         Response response = RestAssured.given()
                 .auth().oauth2(token)
                 .contentType("application/json")

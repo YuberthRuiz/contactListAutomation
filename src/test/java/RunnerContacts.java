@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
         plugin = {"pretty"}
         ,glue = {"stepdefinitions"}
         ,features = "src/test/resources/features"
-        //,tags = "@contact"
+        ,tags = "@smoke"
 )
 public class RunnerContacts {
 }

@@ -26,7 +26,7 @@ public class GetContactListStepDefinitions {
                 .extract().response();
         statusCode = response.getStatusCode();
     }
-    @Then("he should see the created contacts")
+    @Then("he should see a successfully request response")
     public void user_should_see_the_created_contacts() {
         assertEquals(statusCode, 200);
     }

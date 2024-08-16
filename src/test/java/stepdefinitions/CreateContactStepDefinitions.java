@@ -41,7 +41,7 @@ public class CreateContactStepDefinitions {
         statusCode = getContactsSteps.addContact(user);
     }
 
-    @Then("he should see the newly created contact")
+    @Then("he should see the contact created successfully")
     public void user_should_see_the_new_created_contact() {
         idContact = getContactsSteps.idNewContact();
         assertNotNull(idContact);

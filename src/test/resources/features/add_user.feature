@@ -7,4 +7,4 @@ Feature: Add new user
   Scenario: Should be able to create new users when the user logs in
     Given Sam is logged into the application
     When he requested the add user service
-    Then he should see the newly created user
+    Then he should see user created successfully

@@ -16,7 +16,7 @@ public class LogOutStepDefinitions {
     @Steps(shared = true)
     LoginUserSteps loginUserSteps;
     @When("Sam requested the logout service")
-    public void sam_requested_the_logout_service() {
+    public void user_requested_the_logout_service() {
         response = RestAssured.given()
                 .auth().oauth2(token)
                 .contentType("application/json")
@@ -27,7 +27,7 @@ public class LogOutStepDefinitions {
     }
 
     @Then("he should exit the app")
-    public void he_should_exit_the_app() {
+    public void user_should_exit_the_app() {
         assertEquals(statusCode, 200);
     }
 }

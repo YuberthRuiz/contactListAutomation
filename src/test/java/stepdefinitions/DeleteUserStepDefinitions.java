@@ -7,7 +7,6 @@ import net.serenitybdd.annotations.Steps;
 import steps.AddUsersSteps;
 import steps.DeleteUsersSteps;
 import steps.LoginUserSteps;
-import steps.UpdateUsersSteps;
 
 import java.io.File;
 
@@ -27,13 +26,13 @@ public class DeleteUserStepDefinitions {
     AddUsersSteps addUsersSteps;
 
     @When("Sam requested the delete user service")
-    public int sam_requested_the_delete_user_service() {
+    public int user_requested_the_delete_user_service() {
         response = deleteUsersSteps.deleteUser();
         statusCode = response.getStatusCode();
         return statusCode;
     }
     @Then("he should see the user was deleted successfully")
-    public void he_should_see_the_user_was_deleted_successfully() {
+    public void user_should_see_the_user_was_deleted_successfully() {
         assertEquals(statusCode, 200);
         File loginAlternativeUser = new File("src/test/resources/json/loginAlternativeUser.json");
         loginUserSteps.getToken(loginAlternativeUser);

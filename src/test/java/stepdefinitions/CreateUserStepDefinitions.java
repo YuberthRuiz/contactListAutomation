@@ -28,8 +28,8 @@ public class CreateUserStepDefinitions {
         File userAlternative = new File("src/test/resources/json/AddAlternativeUser.json");
         statusCode = addUsersSteps.addUser(userAlternative);
     }
-    @Then("he should see the newly created user")
-    public void he_should_see_the_newly_created_user() {
+    @Then("he should see user created successfully")
+    public void user_should_see_the_newly_created_user() {
         idUser = addUsersSteps.idNewUser();
         assertNotNull(idUser);
         assertEquals(statusCode, 201);

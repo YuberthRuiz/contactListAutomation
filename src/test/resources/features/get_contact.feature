@@ -6,5 +6,5 @@ Feature: Get one specific contact
     And Sam requested the add contact service
     #And he should see the newly created contact
     When Sam requested the contact service
-    Then he should see the contact requested
+    Then he should see the contact requested was successfully
 

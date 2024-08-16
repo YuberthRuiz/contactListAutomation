@@ -21,7 +21,7 @@ public class UpdateContactStepDefinitons {
     @Steps(shared = true)
     AddContactsSteps getContactsSteps;
     @When("Sam try to update the contact")
-    public void sam_try_to_update_the_contact() {
+    public void user_try_to_update_the_contact() {
         String idContact = getContactsSteps.idNewContact();
         File updateContact = new File("src/test/resources/json/updateContact.json");
         response = RestAssured.given().body(updateContact)
@@ -33,7 +33,7 @@ public class UpdateContactStepDefinitons {
         statusCode = response.getStatusCode();
     }
     @When("Sam try to update just one attribute of the contact")
-    public void sam_try_to_update_just_one_attribute_of_the_contact() {
+    public void user_try_to_update_just_one_attribute_of_the_contact() {
         String idContact = getContactsSteps.idNewContact();
         File updateContactAttribute = new File("src/test/resources/json/updateAttributeContact.json");
         response = RestAssured.given().body(updateContactAttribute)
@@ -46,7 +46,7 @@ public class UpdateContactStepDefinitons {
 
     }
     @Then("he should see a successfully response")
-    public void he_should_see_the_contact_updated() {
+    public void user_should_see_the_contact_updated() {
         assertEquals(statusCode, 200);
     }
 }
