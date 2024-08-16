@@ -15,6 +15,8 @@ public class DeleteUsersSteps {
                 .when().delete("/users/me")
                 .then().statusCode(200)
                 .extract().response();
+        if(response.getStatusCode() != 200)
+            System.out.println(response.jsonPath().getString("message"));
         return response;
     }
 }

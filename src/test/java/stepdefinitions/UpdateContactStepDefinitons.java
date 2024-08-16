@@ -45,7 +45,7 @@ public class UpdateContactStepDefinitons {
         statusCode = response.getStatusCode();
 
     }
-    @Then("he should see the contact updated")
+    @Then("he should see a successfully response")
     public void he_should_see_the_contact_updated() {
         assertEquals(statusCode, 200);
     }

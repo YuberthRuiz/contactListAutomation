@@ -33,7 +33,7 @@ public class CreateUserStepDefinitions {
         idUser = addUsersSteps.idNewUser();
         assertNotNull(idUser);
         assertEquals(statusCode, 201);
-        File loginAlternative = new File("src/test/resources/json/loginAlternativeUser.json");
+        File loginAlternative = new File("src/test/resources/json/loginAlternativeUser2.json");
         loginUserSteps.getToken(loginAlternative);
         deleteUsersSteps.deleteUser();
     }

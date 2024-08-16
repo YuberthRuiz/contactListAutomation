@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
         plugin = {"pretty"}
         ,glue = {"stepdefinitions"}
         ,features = "src/test/resources/features"
-        ,tags = "@newuser"
+        ,tags = "@logout"
 )
 public class RunnerUsers {
 }
