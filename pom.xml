@@ -95,12 +95,6 @@
             <version>5.4.0</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.skyscreamer</groupId>
-            <artifactId>jsonassert</artifactId>
-            <version>1.5.0</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -121,6 +115,7 @@
                         <include>**/*Test.java</include>
                         <include>**/Test*.java</include>
                         <include>**/*TestSuite.java</include>
+                        <include>**/Runner*.java</include>
                         <include>**/When*.java</include>
                     </includes>
                     <systemPropertyVariables>

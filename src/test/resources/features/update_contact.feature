@@ -1,4 +1,4 @@
-@contacts @smoke @contact
+@contacts @update
 Feature: Update a new contact information
 
   Scenario: Should be able to update the contact information

@@ -6,8 +6,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {"pretty"},
         glue = {"stepdefinitions"},
-        features = "src/test/resources/features/contacts"
+        features = "src/test/resources/features"
         ,tags = "@delete"
 )
-public class RunnerContacts {
+public class RunnerUsers {
 }

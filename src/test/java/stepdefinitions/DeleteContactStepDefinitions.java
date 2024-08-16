@@ -10,28 +10,28 @@ import steps.LoginUserSteps;
 
 import static org.junit.Assert.assertEquals;
 
-public class GetContactStepDefinition {
-    String idContacts;
-    String token;
+public class DeleteContactStepDefinitions {
+    Response response;
     int statusCode;
     @Steps(shared = true)
     LoginUserSteps loginUserSteps;
     @Steps(shared = true)
     GetContactsSteps getContactsSteps;
-    @When("^(.*) requested the contact service")
-    public void sam_requested_the_contact_service(String actor) {
-        token = loginUserSteps.getToken();
-        idContacts = getContactsSteps.idNewContact();
-    }
-    @Then("he should see the contact requested")
-    public void he_should_see_the_contact_requested() {
-        Response response = RestAssured.given()
+    @When("Sam try to delete the contact")
+    public void sam_try_to_delete_the_contact() {
+        String token = loginUserSteps.getToken();
+        String idContact = getContactsSteps.idNewContact();
+        response = RestAssured.given()
                 .auth().oauth2(token)
                 .contentType("application/json")
-                .when().get("/contacts/" + idContacts)
+                .when().delete("/contacts/" + idContact)
                 .then().statusCode(200)
                 .extract().response();
-        String idContact = response.jsonPath().getString("_id");
-        assertEquals(idContacts, idContact);
+        statusCode = response.getStatusCode();
+    }
+
+    @Then("he should see the contact was deleted")
+    public void he_should_see_the_contact_was_deleted() {
+        assertEquals(statusCode, 200);
     }
 }
