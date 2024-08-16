@@ -5,21 +5,19 @@ import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import net.serenitybdd.annotations.Steps;
-import steps.GetContactsSteps;
+import steps.AddContactsSteps;
 import steps.LoginUserSteps;
 
 import static org.junit.Assert.assertEquals;
+import static steps.LoginUserSteps.token;
 
 public class DeleteContactStepDefinitions {
     Response response;
     int statusCode;
     @Steps(shared = true)
-    LoginUserSteps loginUserSteps;
-    @Steps(shared = true)
-    GetContactsSteps getContactsSteps;
+    AddContactsSteps getContactsSteps;
     @When("Sam try to delete the contact")
     public void sam_try_to_delete_the_contact() {
-        String token = loginUserSteps.getToken();
         String idContact = getContactsSteps.idNewContact();
         response = RestAssured.given()
                 .auth().oauth2(token)

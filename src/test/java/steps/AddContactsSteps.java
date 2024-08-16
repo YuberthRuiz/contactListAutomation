@@ -9,9 +9,9 @@ import java.io.File;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static steps.LoginUserSteps.token;
 
-public class GetContactsSteps {
-    public String token;
+public class AddContactsSteps {
     int statusCode;
     String idContact;
     Response responseNewContact;
@@ -20,7 +20,6 @@ public class GetContactsSteps {
     LoginUserSteps loginUserSteps;
     @Step("#actor requested the add contact service")
     public int addContact(String user) {
-        String token = loginUserSteps.getToken();
         File addContact = new File("src/test/resources/json/addContact.json");
         responseNewContact = RestAssured.given().body(addContact)
                 .auth().oauth2(token)

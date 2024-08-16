@@ -7,8 +7,10 @@ import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import net.serenitybdd.annotations.Steps;
-import steps.GetContactsSteps;
+import steps.AddContactsSteps;
 import steps.LoginUserSteps;
+
+import java.io.File;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -26,11 +28,12 @@ public class CreateContactStepDefinitions {
     LoginUserSteps loginUserSteps;
 
     @Steps(shared = true)
-    GetContactsSteps getContactsSteps;
+    AddContactsSteps getContactsSteps;
 
     @Given("^(.*) is logged into the application")
     public void user_is_logged_in_the_application(String actor) {
-        loginUserSteps.getToken();
+        File login = new File("src/test/resources/json/loginUser.json");
+        loginUserSteps.getToken(login);
     }
 
     @When("^(.*) requested the add contact service")

@@ -4,10 +4,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        plugin = {"pretty"},
-        glue = {"stepdefinitions"},
-        features = "src/test/resources/features/contacts"
-        ,tags = "@delete"
+        plugin = {"pretty"}
+        ,glue = {"stepdefinitions"}
+        ,features = "src/test/resources/features"
+        //,tags = "@contact"
 )
 public class RunnerContacts {
 }

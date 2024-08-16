@@ -5,12 +5,13 @@ import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import net.serenitybdd.annotations.Steps;
-import steps.GetContactsSteps;
+import steps.AddContactsSteps;
 import steps.LoginUserSteps;
 
 import java.io.File;
 
 import static org.junit.Assert.assertEquals;
+import static steps.LoginUserSteps.token;
 
 public class UpdateContactStepDefinitons {
     Response response;
@@ -18,10 +19,9 @@ public class UpdateContactStepDefinitons {
     @Steps(shared = true)
     LoginUserSteps loginUserSteps;
     @Steps(shared = true)
-    GetContactsSteps getContactsSteps;
+    AddContactsSteps getContactsSteps;
     @When("Sam try to update the contact")
     public void sam_try_to_update_the_contact() {
-        String token = loginUserSteps.getToken();
         String idContact = getContactsSteps.idNewContact();
         File updateContact = new File("src/test/resources/json/updateContact.json");
         response = RestAssured.given().body(updateContact)
@@ -34,7 +34,6 @@ public class UpdateContactStepDefinitons {
     }
     @When("Sam try to update just one attribute of the contact")
     public void sam_try_to_update_just_one_attribute_of_the_contact() {
-        String token = loginUserSteps.getToken();
         String idContact = getContactsSteps.idNewContact();
         File updateContactAttribute = new File("src/test/resources/json/updateAttributeContact.json");
         response = RestAssured.given().body(updateContactAttribute)

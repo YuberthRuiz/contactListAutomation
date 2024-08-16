@@ -8,20 +8,18 @@ import net.serenitybdd.annotations.Step;
 import java.io.File;
 
 public class LoginUserSteps {
-    String token;
+    public static String token;
     @Before
     public void setupBaseUrl(){
         RestAssured.baseURI = "https://thinking-tester-contact-list.herokuapp.com";
     }
     @Step("#actor is logged into the application")
-    public String getToken(){
-        File loginUserRequest = new File("src/test/resources/json/loginUser.json");
-        Response response = RestAssured.given().body(loginUserRequest)
+    public void getToken(File file){
+        Response response = RestAssured.given().body(file)
                 .contentType("application/json")
                 .when().post("/users/login")
                 .then().statusCode(200)
                 .extract().response();
         token = response.jsonPath().getString("token");
-        return token;
     }
 }

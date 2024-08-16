@@ -1,0 +1,20 @@
+package steps;
+
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+
+import java.io.File;
+
+import static steps.LoginUserSteps.token;
+
+public class DeleteUsersSteps {
+    public Response deleteUser(){
+        Response response = RestAssured.given()
+                .contentType("application/json")
+                .auth().oauth2(token)
+                .when().delete("/users/me")
+                .then().statusCode(200)
+                .extract().response();
+        return response;
+    }
+}

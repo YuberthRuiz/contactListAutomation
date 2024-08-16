@@ -8,6 +8,7 @@ import net.serenitybdd.annotations.Steps;
 import steps.LoginUserSteps;
 
 import static org.junit.Assert.assertEquals;
+import static steps.LoginUserSteps.token;
 
 public class GetContactListStepDefinitions {
 
@@ -17,7 +18,6 @@ public class GetContactListStepDefinitions {
     CreateContactStepDefinitions createContactStepDefinitions;
     @When("^(.*) requested the list of contacts")
     public void user_requested_the_list_of_contacts( String actor) {
-        String token = loginUserSteps.getToken();
         Response response = RestAssured.given()
                 .auth().oauth2(token)
                 .contentType("application/json")
